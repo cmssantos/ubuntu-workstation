@@ -6,10 +6,10 @@ echo "Removendo travas eventuais do apt"
 
 sudo rm /var/lib/dpkg/lock-frontend; sudo rm /var/cache/apt/archives/lock;
 
-echo "Adicionando PPA's"
-
 
 ## Adicionar PPA's ##
+
+echo "Adicionando PPA's"
 
 sudo apt-add-repository ppa:graphics-drivers/ppa -y && 
 
@@ -54,12 +54,9 @@ sudo apt install steam-installer -y &&
 sudo apt install steam-devices && 
 sudo apt install steam:i386 && 
 
-* extenções
-
 sudo snap install spotity && 
 sudo snap install code --classic && 
 sudo snap install simplenote && 
-
 sudo snap install discord && 
 sudo snap install insomnia && 
 sudo snap install mailspring && 
