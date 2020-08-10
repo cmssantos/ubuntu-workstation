@@ -1,32 +1,100 @@
 #!/bin/bash
 
+echo "Removendo travas eventuais do apt"
+
 ## Removendo travas eventuais do apt ##
 
-sudo rm /var/lib/dpkg/lock-frontend ; sudo rm /var/cache/apt/archives/lock ;
+sudo rm /var/lib/dpkg/lock-frontend; sudo rm /var/cache/apt/archives/lock;
+
+echo "Adicionando PPA's"
+
+
+## Adicionar PPA's ##
+
+sudo apt-add-repository ppa:graphics-drivers/ppa -y && 
+
+sudo add-apt-repository ppa:lutris-team/lutris -y && 
+
 
 ## Atualizando o repositório ##
 
-sudo apt update && 
+echo "Atualizando o repositório"
 
-## Instalando pacotes e programas do repositório deb do Ubuntu ##
+sudo apt update &&
 
-sudo apt install git gnome-tweaks unrar ubuntu-restricted-extras flatpak gnome-software-plugin-flatpak -y &&
 
-## Instalando pacotes Snap ##
+## Download de programas externos ##
 
-sudo snap install simplenote &&
-sudo snap install insomnia &&  
-sudo snap install spotify &&
-sudo snap install code --classic &&  
+echo "Fazendo o download dos programas externos em ~/Downloads/programas"
+
+mkdir ~/Downloads/programas && 
+
+cd ~/Downloads/programas && 
+
+wget -c https://www.pokerstars.com/PokerStarsInstall.exe && 
+
+wget -c https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && 
+
+wget -c https://filestore.fortinet.com/forticlient/downloads/FortiClientFullVPNInstaller_6.4.0.0851.deb && 
+
+wget -c https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_1.3.00.16851_amd64.deb && 
+
+sudo dpkg -i *.deb && 
+
+
+## Programas do repositório ##
+
+echo "Instalando os programas do repositório"
+
+sudo apt install dconf-editor && 
+sudo apt install fira-fonts && 
+sudo apt install ubuntu-restricted-extras && 
+sudo apt install virtualbox -y && 
+sudo apt install steam-installer -y && 
+sudo apt install steam-devices && 
+sudo apt install steam:i386 && 
+
+* extenções
+
+sudo snap install spotity && 
+sudo snap install code --classic && 
+sudo snap install simplenote && 
+
+sudo snap install discord && 
+sudo snap install insomnia && 
+sudo snap install mailspring && 
+
+
+## ufw
+sudo apt install ufw && 
+
+sudo ufw enable && 
+
+sudo ufw default deny incoming &&
+
+sudo ufw default allow outgoing &&
+
+
+## Remmina ##
+
 sudo snap install remmina && 
-sudo snap install wps-office-multilang && 
 
-#forticlient#
-#discord
+sudo snap connect remmina:avahi-observe :avahi-observe && 
 
-## Ative a opção “minimizar ao clicar” ##
+sudo snap connect remmina:cups-control :cups-control && 
+
+sudo snap connect remmina:mount-observe :mount-observe && 
+
+sudo snap connect remmina:password-manager-service :password-manager-service && 
+
+
+## Configurações do Gnome ##
 
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize-or-overview'
+
+
+## Lutris e Wine ##
+
 
 ## Atualização do sistema ##
 
