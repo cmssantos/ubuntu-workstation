@@ -1,0 +1,37 @@
+sudo apt update
+
+sudo apt install git 
+
+executar o arquivo ubuntu-workstation
+
+instalar suporte idiomas
+
+Instalar o driver de video
+
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize-or-overview'
+
+gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
+
+gsettings set org.gnome.shell.extensions.dash-to-dock autohide-in-fullscreen true
+
+gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
+
+gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 38
+
+gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode 'DYNAMIC'
+
+gsettings set org.gnome.shell.extensions.desktop-icons show-home false
+
+gsettings set org.gnome.shell.extensions.desktop-icons show-trash false
+
+instalar o NVM e Node Js
+
+KODI
+
+sudo add-apt-repository ppa:team-xbmc/ppa
+
+sudo apt-get update
+
+sudo apt-get install kodi
+
+sudo apt-get install --install-suggests kodi

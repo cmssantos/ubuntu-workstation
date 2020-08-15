@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo "Removendo travas eventuais do apt"
-
 ## Removendo travas eventuais do apt ##
+
+echo "Removendo travas eventuais do apt"
 
 sudo rm /var/lib/dpkg/lock-frontend; sudo rm /var/cache/apt/archives/lock;
 
@@ -12,8 +12,6 @@ sudo rm /var/lib/dpkg/lock-frontend; sudo rm /var/cache/apt/archives/lock;
 echo "Adicionando PPA's"
 
 sudo apt-add-repository ppa:graphics-drivers/ppa -y && 
-
-sudo add-apt-repository ppa:lutris-team/lutris -y && 
 
 
 ## Atualizando o repositório ##
@@ -25,21 +23,7 @@ sudo apt update &&
 
 ## Download de programas externos ##
 
-echo "Fazendo o download dos programas externos em ~/Downloads/programas"
-
-mkdir ~/Downloads/programas && 
-
-cd ~/Downloads/programas && 
-
-wget -c https://www.pokerstars.com/PokerStarsInstall.exe && 
-
-wget -c https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && 
-
-wget -c https://filestore.fortinet.com/forticlient/downloads/FortiClientFullVPNInstaller_6.4.0.0851.deb && 
-
-wget -c https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_1.3.00.16851_amd64.deb && 
-
-sudo dpkg -i *.deb && 
+https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 
 
 ## Programas do repositório ##
@@ -47,22 +31,25 @@ sudo dpkg -i *.deb &&
 echo "Instalando os programas do repositório"
 
 sudo apt install dconf-editor && 
-sudo apt install fira-fonts && 
-sudo apt install ubuntu-restricted-extras && 
-sudo apt install virtualbox -y && 
-sudo apt install steam-installer -y && 
-sudo apt install steam-devices && 
-sudo apt install steam:i386 && 
+sudo apt install fonts-firacode && 
+sudo apt install ubuntu-restricted-extras -y && 
+sudo apt install curl -y &&
+sudo apt install vlc -y &&
 
-sudo snap install spotity && 
+sudo snap install spotify && 
 sudo snap install code --classic && 
 sudo snap install simplenote && 
 sudo snap install discord && 
 sudo snap install insomnia && 
 sudo snap install mailspring && 
 
+## NVM ##
 
-## ufw
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+
+
+## UFW
+
 sudo apt install ufw && 
 
 sudo ufw enable && 
@@ -87,15 +74,11 @@ sudo snap connect remmina:password-manager-service :password-manager-service &&
 
 ## Configurações do Gnome ##
 
-gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize-or-overview'
-
-
-## Lutris e Wine ##
-
 
 ## Atualização do sistema ##
 
 sudo apt update && sudo apt dist-upgrade -y && sudo apt autoclean -y && sudo apt autoremove -y &&
+
 
 #Fim do Script ##
 
