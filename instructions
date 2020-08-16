@@ -1,13 +1,24 @@
+1 - 
+
+instalar suporte idiomas
+
+2 -
 sudo apt update
 
 sudo apt install git 
 
+3 -
 executar o arquivo ubuntu-workstation
 
-instalar suporte idiomas
+sudo ./ubuntu-workstation.sh
 
+4 -
 Instalar o driver de video
 
+5 -
+instalar o NVM e Node Js
+
+6 - 
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize-or-overview'
 
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
@@ -24,14 +35,4 @@ gsettings set org.gnome.shell.extensions.desktop-icons show-home false
 
 gsettings set org.gnome.shell.extensions.desktop-icons show-trash false
 
-instalar o NVM e Node Js
 
-KODI
-
-sudo add-apt-repository ppa:team-xbmc/ppa
-
-sudo apt-get update
-
-sudo apt-get install kodi
-
-sudo apt-get install --install-suggests kodi
